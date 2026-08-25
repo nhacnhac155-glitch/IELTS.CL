@@ -337,13 +337,36 @@ export function App() {
   }
 
   // Derive current student profile when in student role
-  const currentStudent =
+  const currentStudent: Student | null =
     students.find(
       (s) =>
         s.id === currentUser.studentProfileId ||
         s.email.toLowerCase() === currentUser.email.toLowerCase() ||
         s.id === currentStudentId
-    ) || students[0];
+    ) ||
+    students[0] ||
+    (currentUser.role === 'student'
+      ? {
+          id: currentUser.studentProfileId || currentUser.id,
+          name: currentUser.name,
+          email: currentUser.email,
+          avatar: currentUser.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
+          classId: currentUser.classId || '',
+          className: currentUser.className || 'Chưa xếp lớp',
+          targetBand: 6.5,
+          currentEstimatedBand: 6.0,
+          skillScores: {
+            reading: 6.0,
+            listening: 6.0,
+            writing: 6.0,
+            speaking: 6.0,
+          },
+          totalSubmissions: 0,
+          onTimeSubmissions: 0,
+          lateSubmissions: 0,
+          joinedDate: new Date().toISOString().split('T')[0],
+        }
+      : null);
 
   return (
     <div className="min-h-screen bg-slate-100/70 flex flex-col font-sans text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
