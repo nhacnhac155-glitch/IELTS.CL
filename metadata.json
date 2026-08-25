@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix IELTS Pro - Hệ Thống Giao Bài \u0026 Theo Dõi Học Sinh",
+  "description": "Nền tảng giao bài tập IELTS 4 kỹ năng, giới hạn thời gian làm bài, nộp bài trực tuyến, chấm điểm rubric tiêu chuẩn và theo dõi tiến độ từng học sinh.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
